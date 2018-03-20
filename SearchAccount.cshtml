@@ -1,0 +1,68 @@
+@model Retail_Bankingteam03.Models.AccountDetails_3
+@{
+    ViewBag.Title = "SearchAccount";
+}
+
+<h2>SearchAccount</h2>
+
+@using (@Html.BeginForm())
+{
+    <tr>
+        <td><span>View Account By :</span></td>
+    </tr>
+    <br />
+    <table>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function () {
+            $("input[name='CheckMethod']").click(function () {
+                if ($("#chk1").is(":checked"))
+                {
+                    $("#Byaccid").show();
+                    $("#Bycustid").hide();
+                }
+                else
+                {
+                    $("#Bycustid").show();
+                    $("#Byaccid").hide();
+                }
+            });
+        });
+        </script>
+
+        <tr>
+            <label for="chk1">
+                <input type="radio" id="chk1" name="CheckMethod" value="AccountID" />
+               By Account ID:
+            </label>
+
+            <label for="chk2">
+                <input type="radio" id="chk2" name="CheckMethod" value="CustomerID" />
+              By Customer ID:
+            </label>
+        </tr>
+        <br />
+        <tr>
+            <td>
+                <div id="Byaccid" style="display: none">
+                    Account ID
+                    <input type="number" id="AccountID" name="AccountID" />
+                </div>
+            </td>
+            <td>
+                <div id="Bycustid" style="display: none">
+                    Customer ID
+                    <input type="number"id="CustomerID" name="CustomerID" />
+                   
+                </div>
+            </td>
+        </tr>
+        <br />
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" />
+            <td></td>
+        </tr>
+
+    </table>
+}
