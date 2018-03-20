@@ -1,0 +1,69 @@
+@model Retail_Bankingteam03.Models.AccountDetails_3
+@{
+    ViewBag.Title = "CreateAccount";
+}
+
+<h2>CreateAccount</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+
+                @Html.LabelFor(a => a.CustomerID_3, "Customer_ID")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.CustomerID_3)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.CustomerID_3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.AccountType_3, "AccountType")
+            </td>
+            <td>
+                @Html.RadioButtonFor(a => a.AccountType_3, "Savings")Savings
+                @Html.RadioButtonFor(a => a.AccountType_3, "Current")Current
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.AccountType_3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.Balance_3, "Depoist")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Balance_3,new { id="txtbal"} )
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Balance_3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit" id="bal" />
+            </td>
+        </tr>
+    </table>
+}
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#txtbal').change(function () {
+            var bal= $('#txtbal').val()
+            if (bal <= 0) {
+                alert("please enter a proper positive amount")
+            //    $('#bal').attr("disabled", true);
+            //}
+            //else {
+            //    $('#Deposit').attr("disabled", false);
+            }
+        });
+    });
+</script>
