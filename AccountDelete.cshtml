@@ -1,0 +1,44 @@
+
+
+@model Retail_Bankingteam03.Models.AccountDetails_3
+    @{
+    ViewBag.Title = "AccountDelete";
+}
+
+<h2>AccountDelete</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.AccountID_3, "Account_ID")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.AccountID_3)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.AccountID_3)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.AccountType_3, "AccountType")
+            </td>
+            <td>
+                @Html.RadioButtonFor(a => a.AccountType_3, "Savings")Savings
+                @Html.RadioButtonFor(a => a.AccountType_3, "Current")Current
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.AccountType_3)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="submit"  />
+            </td>
+        </tr>
+    </table>
+}
+
