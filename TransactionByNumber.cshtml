@@ -1,0 +1,24 @@
+@model IEnumerable<Retail_Bankingteam03.Models.transaction_by_number_Result>
+
+@{
+    ViewBag.Title = "TransactionByNumber";
+    WebGrid grid = new WebGrid(Model);
+}
+
+<h2>Account Statement By Number</h2>
+
+@using (Html.BeginForm())
+{
+    @grid.GetHtml(
+    tableStyle: "table table bordered",
+    columns: new[]
+    {
+        grid.Column("TransactionID_3", "Transaction ID"), 
+        grid.Column("Description_3", "Description"),
+        grid.Column("TransactionDate_3", "Transaction Date"),
+        grid.Column("Amount_3", "Amount"),
+    }
+
+      )
+}
+
