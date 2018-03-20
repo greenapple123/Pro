@@ -1,0 +1,83 @@
+@model Retail_Bankingteam03.Models.AccountDetails_3
+
+@{
+    ViewBag.Title = "AccountStatement";
+}
+<br />
+
+<h>Account Statement</h>
+
+@if (Convert.ToInt32(TempData["AlertMessage"]) == 145)
+{
+    TempData["AlertMessage"] = 0;
+    <script type="text/javascript">alert('Account id does not exist')</script>
+}
+
+@using (@Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>@Html.Label("Account ID")</td>
+        <td>@Html.TextBox("AccountID")</td>
+        <td>@Html.ValidationMessage("AccountID")</td>
+    </tr>
+</table>
+<tr>
+    <td><span>View Account Statement By :</span></td>
+</tr>
+<br />
+<table>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input[name='CheckMethod']").click(function () {
+                if ($("#chk1").is(":checked"))
+                {
+                    $("#ByNumber").show();
+                    $("#ByDate").hide();
+                }
+                else
+                {
+                    $("#ByDate").show();
+                    $("#ByNumber").hide();
+                }
+            });
+        });
+    </script>
+   
+    <tr>
+        <label for="chk1">
+            <input type="radio" id="chk1" name="CheckMethod" value="number" />
+        Last No. of Transactions
+        </label>
+
+        <label for="chk2">
+            <input type="radio" id="chk2" name="CheckMethod" value="date"/>
+        Start-End Dates
+        </label>
+    </tr>
+<br />
+    <tr>
+        <td>
+            <div id="ByNumber" style="display: none">
+            No. of Transactions to be Viewed:
+                <input type="text" id="TransactionNumber" name="TransactionNumber"/>
+            </div>
+        </td>
+        <td>
+            <div id="ByDate" style="display: none">
+            Start Date:
+                <input type="date" id="StartDate" name="StartDate"/>
+            End Date:
+                <input type="date" id="EndDate" name="EndDate"/>
+            </div>
+        </td>
+    </tr>
+<br />
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Submit"  />
+        <td></td>
+    </tr>
+</table>
+}
