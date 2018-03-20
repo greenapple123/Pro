@@ -1,0 +1,25 @@
+@model  IEnumerable<Retail_Bankingteam03.Models.AccountDetails_3>
+@{
+    ViewBag.Title = "Accountstatus";
+    WebGrid grid = new WebGrid(Model);
+}
+
+<h2>Accountstatus</h2>
+
+    @grid.GetHtml(tableStyle: "table table-bordered table-hover",
+            columns: new[]
+            {
+            grid.Column("AccountID_3","Account Id"),
+            grid.Column("CustomerID_3","Customer Id"),
+            grid.Column("AccountType_3","Account Type"),
+            grid.Column("Status_3","Status"),
+            grid.Column("Message_3","Message"),
+            grid.Column("LastUpdated_3","Last updated"),
+             @*grid.Column(format:@<text>
+                @Html.ActionLink("Refresh","Accountstatus",new {id=item.AccountID_3 })
+                    </text>)*@
+            }
+            );
+
+
+
